@@ -10,20 +10,19 @@
 
 ## Features
   - Customizable background color
-    A guaranteed question for input is the user's favorite color, which will then be used
-    to change the background color of the window. The program will then ask the user if 
-    they like the color, and if not, the color will be set back to black. Pygame will be
-    utilized throughout the entirety of this program, but especially here for the screen
-    color.
+    - A guaranteed question for input is the user's favorite color, which will then be used to
+      change the background color of the window. The program will then ask the user if they
+      like the color, and if not, the color will be set back to black. Pygame will be
+      utilized throughout the entirety of this program, but especially here for the screen color.
   - External link for song output
-    When a song is given to the user, a YouTube link for the song will be output as well
-    for easy access. I assume that this can be done within PyGame, or with a separate output,
+    - When a song is given to the user, a YouTube link for the song will be output as well
+    for easy access. I assume that this can be done within PyGame, or with a separate output
     that the user can copy
   - Album output for song
-    Along with the song and link, an image of the song's respective album cover will be given
+    - Along with the song and link, an image of the song's respective album cover will be given
     as well. The image will be compressed and pixelated using Image/ImageFilter.
   - Randomized text blurbs
-    The program will have small, separate pieces of text from the input inquiries, and to
+    - The program will have small, separate pieces of text from the input inquiries, and to
     avoid repetitive text, the program will pull from a list of text options. The randomizing
     will be done by the random module, specifically randrange.
 
