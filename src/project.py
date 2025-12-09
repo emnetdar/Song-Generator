@@ -3,8 +3,8 @@ import sys
 
 def main():
 
-    chosen_album = ask_question()
-    print(f"Your album is {chosen_album}! Thanks for participating!")
+    chosen_album = determine_album()
+    print(f"Your album is {str(chosen_album)}! Thanks for participating!")
 
 def ask_question():
 
@@ -13,27 +13,37 @@ def ask_question():
     if input1 == "yes":
         print(f"Yay! Here's your first question.")
     elif input1 == "no":
-        print(f"Aw, okay. Byebye!")
-        return
+        print(f"Too bad! Here's the first question.")
     else:
-        input(f"Sorry, I didn't catch that. Would you like to know what album I'd give you? (Y/N): ")
+        print("Sorry, I didn't catch that. Let's start over.")
+        sys.exit()
 
     question_bank = ["What's your favorite color?", "Do you like cats? (yes/no)", "Do you like the arts? (yes/no)"]
     user_score = 0
 
     input2 = input(f"{question_bank[0]}: ").lower()
 
-    if input2 == "red" or "yellow":
+    if input2 == "red":
         print(f"Oh, that's one of my favorites too! Here's the next one.")
         user_score += 1
-    if input2 == "orange" or "blue":
+    elif input2 == "yellow":
+        print(f"Oh, that's one of my favorites too! Here's the next one.")
+        user_score += 1
+    elif input2 == "orange":
         print(f"Not my fave, but I get the appeal hehe. Next one!")
         user_score += 1
-    if input2 == "green" or "purple":
+    elif input2 == "blue":
+        print(f"Not my fave, but I get the appeal hehe. Next one!")
+        user_score += 1
+    elif input2 == "green":
+        print(f"Ew... Moving on.")
+        user_score += 0
+    elif input2 == "purple":
         print(f"Ew... Moving on.")
         user_score += 0
     else:
-        input("Sorry, I don't know that one. Maybe try something basic?: ")
+        print("Sorry, I don't know that one. No mistakes!")
+        sys.exit()
 
     input3 = input(f"{question_bank[1]}: ").lower()
 
@@ -44,35 +54,42 @@ def ask_question():
         print("Aw. I'd ask why not but I don't really care. Last one!")
         user_score += 1
     else:
-        input("Dang, could you try that again? I didn't understand that.: ")
+        print("Dang, a mistake? Once again!")
+        sys.exit()
 
     input4 = input(f"{question_bank[2]}: ").lower()
 
     if input4 == "yes":
         print("Yay, I was hoping it was a yes! Okay, time to decide what to give you!")
         user_score += 1
-    if input4 == "no":
+    elif input4 == "no":
         print("That's weird, but whatever! Time to make a decision.")
         user_score += 0
     else:
-        input("Sorry, try again one more time?: ")
+        print("Messing it up right at the end? Try again.")
+        sys.exit()
 
     return
 
-    
-def determine_album(user_score, album_bank):
+def determine_album():
 
     album_bank = ["Songs in the Key of Life by Stevie Wonder", "Falsettos (2016 Broadway Cast Recording) by William Finn", 
                 "Songs about Jane by Maroon 5", "I Know I'm Funny Haha by Faye Webster"]
 
+    user_score = ask_question()
+
     if user_score == 3:
-        chosen_album = album_bank[1]
-    if user_score == 2:
-        chosen_album = album_bank[0]
-    if user_score == 1:
-        chosen_album = album_bank[2]
-    if user_score == 0:
-        chosen_album = album_bank[3]
+        chosen_album = album_bank[1].strip()
+        return chosen_album
+    elif user_score == 2:
+        chosen_album = album_bank[0].strip()
+        return chosen_album
+    elif user_score == 1:
+        chosen_album = album_bank[2].strip()
+        return chosen_album
+    elif user_score == 0:
+        chosen_album = album_bank[3].strip()
+        return chosen_album
 
 if __name__ == "__main__":
     main()
